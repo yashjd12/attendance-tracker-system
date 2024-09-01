@@ -10,13 +10,13 @@ const Sidebar = ({ userType }) => {
           {userType === 'student' ? (
             <>
               <li className="mb-4">
-                <Link to="/my-attendance" className="hover:text-gray-300">My Attendance</Link>
+                <Link to="/student-attendance" className="hover:text-gray-300">My Attendance</Link>
               </li>
               <li className="mb-4">
                 <Link to="/notifications" className="hover:text-gray-300">Notifications</Link>
               </li>
               <li className="mb-4">
-                <Link to="/profile" className="hover:text-gray-300">Profile</Link>
+                <Link to="/student-profile" className="hover:text-gray-300">Profile</Link>
               </li>
               <li className="mb-4">
                 <Link to="/apply-leave" className="hover:text-gray-300">Apply Leave</Link>

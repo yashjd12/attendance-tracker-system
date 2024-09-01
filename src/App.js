@@ -10,6 +10,9 @@ import Leaves from './pages/Leaves';
 import { AttendanceProvider } from './context/AttendanceContext';
 import Logout from './pages/Logout'
 import StudentAttendance from './pages/StudentAttendance'
+import Notification from './pages/Notification';
+import ApplyLeave from './pages/ApplyLeave';
+import StudentProfile from './pages/StudentProfile';
 
 function App() {
   const [userType, setUserType] = useState(null);
@@ -44,7 +47,10 @@ function App() {
               <Route path="/students" element={<PrivateRoute element={<Students />} />} />
               <Route path="/courses" element={<PrivateRoute element={<Courses />} />} />
               <Route path="/leaves" element={<PrivateRoute element={<Leaves />} />} />
-              <Route path="/my-attendance" element={<PrivateRoute element={<StudentAttendance />} />} />
+              <Route path="/notifications" element={<PrivateRoute element={<Notification />} />} />
+              <Route path="/apply-leave" element={<PrivateRoute element={<ApplyLeave />} />} />
+              <Route path="/student-profile" element={<PrivateRoute element={<StudentProfile />} />} />
+              <Route path="/student-attendance" element={<PrivateRoute element={<StudentAttendance />} />} />
               <Route path="/logout" element={<Logout onLogout={handleLogout} />} />
               <Route path="*" element={<Navigate to="/login" />} />
             </Routes>

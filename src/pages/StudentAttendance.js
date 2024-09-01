@@ -36,7 +36,7 @@ const StudentAttendance = () => {
 
   return (
     <div className="p-8 bg-white-100 rounded-lg shadow-lg max-w-full mx-auto h-full">
-      <h2 className="text-5xl font-bold mb-8 text-gray-900">My Attendance</h2>
+      <h2 className="text-4xl font-bold mb-8 text-gray-900">My Attendance</h2>
       <div className="mb-8 flex flex-wrap gap-6">
         <div className="flex-1 min-w-[250px]">
           <label htmlFor="course" className="block text-gray-800 text-lg font-semibold mb-2">Course</label>
