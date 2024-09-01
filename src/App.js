@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard';
 import Attendance from './pages/Attendance';
@@ -8,13 +8,29 @@ import Login from './pages/Login';
 import Courses from './pages/Courses';
 import Leaves from './pages/Leaves';
 import { AttendanceProvider } from './context/AttendanceContext';
+import Logout from './pages/Logout'
+import StudentAttendance from './pages/StudentAttendance'
 
 function App() {
+  const [userType, setUserType] = useState(null);
+
+  const handleLogin = (type) => {
+    setUserType(type);
+  };
+
+  const handleLogout = () => {
+    setUserType(null); // Clear the userType to hide the sidebar
+  };
+
+  const PrivateRoute = ({ element }) => {
+    return userType ? element : <Navigate to="/login" />;
+  };
+
   return (
     <Router>
       <AttendanceProvider> 
         <div className="flex h-screen overflow-hidden">
-          <Sidebar />
+          {userType && <Sidebar userType={userType} />}
           <div 
             className="flex-1 p-4 overflow-hidden"
             style={{ 
@@ -22,12 +38,15 @@ function App() {
             }}
           >
             <Routes>
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/attendance" element={<Attendance />} />
-              <Route path="/students" element={<Students />} />
-              <Route path="/courses" element={<Courses />} />
-              <Route path="/leaves" element={<Leaves />} />
-              <Route path="/logout" element={<Login />} />
+              <Route path="/login" element={<Login onLogin={handleLogin} />} />
+              <Route path="/dashboard" element={<PrivateRoute element={<Dashboard />} />} />
+              <Route path="/attendance" element={<PrivateRoute element={<Attendance />} />} />
+              <Route path="/students" element={<PrivateRoute element={<Students />} />} />
+              <Route path="/courses" element={<PrivateRoute element={<Courses />} />} />
+              <Route path="/leaves" element={<PrivateRoute element={<Leaves />} />} />
+              <Route path="/my-attendance" element={<PrivateRoute element={<StudentAttendance />} />} />
+              <Route path="/logout" element={<Logout onLogout={handleLogout} />} />
+              <Route path="*" element={<Navigate to="/login" />} />
             </Routes>
           </div>
         </div>
