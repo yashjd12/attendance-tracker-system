@@ -19,6 +19,9 @@ const Sidebar = () => {
           <li className="mb-4">
             <Link to="/courses" className="hover:text-gray-300">My Courses</Link>
           </li>
+          <li className="mb-4">
+            <Link to="/leaves" className="hover:text-gray-300">Leaves</Link>
+          </li>
           <li>
             <Link to="/logout" className="hover:text-gray-300">Logout</Link>
           </li>

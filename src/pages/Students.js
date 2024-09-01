@@ -40,19 +40,19 @@ const Students = () => {
 
   return (
     <div className="p-8">
-      <h2 className="text-2xl font-semibold mb-6">Students</h2>
-      
+      <h2 className="text-4xl font-bold mb-8 text-gray-800">Students</h2>
+
       {/* Filters */}
       <div className="mb-6">
         <label className="mr-4">
           Course:
-          <select 
-            value={selectedCourse} 
-            onChange={handleCourseChange} 
+          <select
+            value={selectedCourse}
+            onChange={handleCourseChange}
             className="ml-2 p-2 border rounded"
           >
             <option value="">All Courses</option>
-            {courseOptions.map(course => (
+            {courseOptions.map((course) => (
               <option key={course.value} value={course.value}>
                 {course.label}
               </option>
@@ -62,10 +62,10 @@ const Students = () => {
 
         <label className="ml-6">
           Month:
-          <input 
-            type="month" 
-            value={selectedMonth} 
-            onChange={handleMonthChange} 
+          <input
+            type="month"
+            value={selectedMonth}
+            onChange={handleMonthChange}
             className="ml-2 p-2 border rounded"
           />
         </label>
@@ -81,41 +81,40 @@ const Students = () => {
 
       {/* Student Table */}
       <div className="bg-white p-4 rounded-lg shadow-md">
-  <table className="w-full text-left">
-    <thead>
-      <tr>
-        <th className="pb-4">Student ID</th>
-        <th className="pb-4">Student Name</th>
-        <th className="pb-4">% Attendance (Month)</th>
-        <th className="pb-4">% Attendance (Overall)</th>
-        <th className="pb-4">No. of Leaves</th>
-        <th className="pb-4">Alert</th>
-      </tr>
-    </thead>
-    <tbody>
-      {filteredStudents.map((student) => (
-        <tr key={student.id}>
-          <td className="py-2">{student.id}</td>
-          <td className="py-2">{student.name}</td>
-          <td className="py-2">{student.monthlyAttendance}%</td>
-          <td className="py-2">{student.overallAttendance}%</td>
-          <td className="py-2">{student.leaves}</td>
-          <td className="py-2">
-            {student.monthlyAttendance < 75 && (
-              <button 
-                onClick={() => handleSendAlert(student)}
-                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-              >
-                Send Alert
-              </button>
-            )}
-          </td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-</div>
-
+        <table className="w-full text-left">
+          <thead>
+            <tr>
+              <th className="pb-4">Student ID</th>
+              <th className="pb-4">Student Name</th>
+              <th className="pb-4">% Attendance (Month)</th>
+              <th className="pb-4">% Attendance (Overall)</th>
+              <th className="pb-4">No. of Leaves</th>
+              <th className="pb-4">Alert</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredStudents.map((student) => (
+              <tr key={student.id}>
+                <td className="py-2">{student.id}</td>
+                <td className="py-2">{student.name}</td>
+                <td className="py-2">{student.monthlyAttendance}%</td>
+                <td className="py-2">{student.overallAttendance}%</td>
+                <td className="py-2">{student.leaves}</td>
+                <td className="py-2">
+                  {student.monthlyAttendance < 75 && (
+                    <button
+                      onClick={() => handleSendAlert(student)}
+                      className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                    >
+                      Send Alert
+                    </button>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

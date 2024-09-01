@@ -89,7 +89,7 @@ const Attendance = () => {
 
   return (
     <div className="p-8">
-      <h2 className="text-2xl font-semibold mb-4">Attendance</h2>
+      <h2 className="text-4xl font-bold mb-8 text-gray-800">Attendance</h2>
       <Filter
         courses={courseOptions}
         date={selectedDate}
