@@ -11,7 +11,7 @@ const Login = ({ onLogin }) => {
     // Simulate login logic
     if (username === 'student' && password === 'password') {
       onLogin('student');
-      navigate('/my-attendance'); // Redirect to student's page
+      navigate('/student-attendance'); // Redirect to student's page
     } else if (username === 'teacher' && password === 'password') {
       onLogin('teacher');
       navigate('/dashboard'); // Redirect to teacher's dashboard
