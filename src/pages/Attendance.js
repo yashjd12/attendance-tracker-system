@@ -114,13 +114,13 @@ const Attendance = () => {
         <table className="min-w-full bg-white border-collapse border border-gray-200">
           <thead>
             <tr>
-              <th className="py-3 px-4 border-b border-gray-200 text-left sticky top-0 z-12 text-white" style={{ backgroundColor: '#FF3374' }}>
+              <th className="py-3 px-4 border-b border-gray-200 text-left sticky top-0 z-12 text-black" style={{ backgroundColor: '#71D2F8' }}>
                 Student ID
               </th>
-              <th className="py-3 px-4 border-b border-gray-200 text-left sticky top-0 z-12 text-white" style={{ backgroundColor: '#FF3374' }}>
+              <th className="py-3 px-4 border-b border-gray-200 text-left sticky top-0 z-12 text-black" style={{ backgroundColor: '#71D2F8' }}>
                 Name
               </th>
-              <th className="py-3 px-4 border-b border-gray-200 text-left sticky top-0 z-12 text-white" style={{ backgroundColor: '#FF3374' }}>
+              <th className="py-3 px-4 border-b border-gray-200 text-left sticky top-0 z-12 text-black" style={{ backgroundColor: '#71D2F8' }}>
                 Attendance
               </th>
             </tr>
